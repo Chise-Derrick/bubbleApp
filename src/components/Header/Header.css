@@ -7,7 +7,7 @@
     padding: 10px;
     height: 42px;
     justify-content: space-evenly;
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid #353535;
     width: 100%;
 }
 
@@ -40,5 +40,18 @@
     border: none;
     background: none;
     color: #fff;
+}
+
+.header__search > input::-webkit-input-placeholder {
+    color: lightgrey; text-overflow: ellipsis;
+}
+.header__search > input:-moz-placeholder {
+    color: lightgrey !important; text-overflow: ellipsis;
+}
+.header__search > input::-moz-placeholder {
+    color: lightgrey !important; text-overflow: ellipsis;
+} /* For the future */
+.header__search > input:-ms-input-placeholder {
+    color: lightgrey !important; text-overflow: ellipsis;
 }
 
