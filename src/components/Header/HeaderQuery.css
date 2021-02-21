@@ -1,0 +1,9 @@
+
+@media (max-width: 600px) {
+    .header {
+        width: calc(100% - 20px);
+        padding-left: 20px;
+        padding-right: 0;
+        justify-content: space-between;
+    }
+}

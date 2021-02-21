@@ -1,0 +1,45 @@
+.sitter__icons {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.sitter__header {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.sitter__info {
+    margin-left: 10px;
+}
+
+.sitter__info > p {
+    font-size: 12px;
+    color: #353535;
+}
+
+.sitter__info > h2 {
+    font-size: 15px;
+}
+
+.sitter__body {
+    overflow-wrap: anywhere;
+}
+
+.sitter__buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.sitter__bookButtons {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.sitter__bookButton {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+

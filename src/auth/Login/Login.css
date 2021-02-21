@@ -3,15 +3,13 @@
     place-items: center;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 60px;
     padding-bottom: 100px;
 }
 
 .login > img {
     object-fit: contain;
     height: 70px;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .login > form {
@@ -23,8 +21,7 @@
     width: 350px;
     height: 50px;
     font-size: 20px;
-    padding: 0;
-    padding-left: 20px;
+    padding: 0 0 0 20px;
     margin-bottom: 10px;
     border-radius: 5px;
     border-color: #55427a;
@@ -39,6 +36,7 @@
     border-radius: 5px;
 }
 
+
 .login__register {
     color: #55427a;
     cursor: pointer;
@@ -48,4 +46,38 @@
 
 .login > p {
     margin-top: 20px;
+}
+
+.login__imageContainer {
+    height: 350px;
+    width: 500px;
+}
+
+.login__svgClip {
+    height: 350px;
+    width: 500px;
+    object-fit: scale-down;
+    clip-path: url(#svgPath);
+}
+
+@media (max-width: 600px) {
+    .login > form > input {
+        width: 250px;
+    }
+
+    .login > form > button {
+        width: 274px;
+    }
+
+    .login__imageContainer {
+        height: 200px;
+        width: 300px;
+    }
+
+    .login__svgClip {
+        height: 200px;
+        width: 300px;
+        object-fit: scale-down;
+        clip-path: url(#svgPath);
+    }
 }

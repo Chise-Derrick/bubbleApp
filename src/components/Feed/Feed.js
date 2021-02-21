@@ -10,9 +10,15 @@ import Post from "./Post/Post";
 import { useEffect, useState } from "react";
 import { db } from "../../firebase/firebase";
 import firebase from "firebase";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/userSlice";
+import axiosFunctions from "../../functions/axiosFunctions";
 
 const Feed = (props) => {
+  const user = useSelector(selectUser);
+
   const [posts, setPosts] = useState([]);
+  const [bookings, setBookings] = useState([]);
   const [input, setInput] = useState("");
 
   useEffect(() => {
@@ -26,16 +32,21 @@ const Feed = (props) => {
           }))
         )
       );
+    axiosFunctions.getLocalSitter(user.data.token).then((sitter) => {});
+    axiosFunctions.getActiveBookings(user.data.token).then((sitter) => {
+      console.log(sitter.data.confirmedBookings);
+      setBookings(sitter.data.confirmedBookings);
+    });
   }, []);
 
   const sendPost = (e) => {
     e.preventDefault();
 
     db.collection("posts").add({
-      name: "Chise Derrick",
-      description: "this is a test",
+      name: user.displayName,
+      description: user.email,
       message: input,
-      photoUrl: "",
+      photoUrl: user.photoUrl || "",
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setInput("");
@@ -43,40 +54,33 @@ const Feed = (props) => {
 
   return (
     <div className="feed">
-      <div className="feed__inputContainer">
-        <div className="feed__input">
-          <CreateIcon />
-          <form>
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-            />
-            <button onClick={sendPost} type="submit">
-              Send
-            </button>
-          </form>
-        </div>
-        <div className="feed__inputOptions">
-          <InputOption Icon={ImageIcon} title="Photo" color="#70b5f9" />
-          <InputOption Icon={SubscriptionsIcon} title="Photo" color="#e7a33e" />
-          <InputOption Icon={EventNoteIcon} title="Event" color="#c0cbcd" />
-          <InputOption
-            Icon={CalendarViewDayIcon}
-            title="Photo"
-            color="#7fc15e"
-          />
-        </div>
+      <div className="feed__bookingsTitle">
+        <h3>Current Bookings</h3>
       </div>
-      {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-        <Post
-          key={id}
-          name={name}
-          description={description}
-          message={message}
-          photoUrl={photoUrl}
-        />
-      ))}
+      {bookings.map(
+        ({
+          id,
+          otherUserFullName,
+          bookingProcess,
+          bookingStatus,
+          scheduledDuration,
+          scheduledStart,
+          imageUrl,
+          parentId,
+        }) => (
+          <Post
+            key={id}
+            pId={id}
+            otherUserFullName={otherUserFullName}
+            imageUrl={imageUrl}
+            bookingProcess={bookingProcess}
+            bookingStatus={bookingStatus}
+            scheduledDuration={scheduledDuration}
+            scheduledStart={scheduledStart}
+            parentId={parentId}
+          />
+        )
+      )}
     </div>
   );
 };

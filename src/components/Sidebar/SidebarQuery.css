@@ -1,0 +1,12 @@
+
+@media (max-width: 600px) {
+    .sidebar {
+        position: relative;
+        top: 0;
+        flex: 0.2;
+        border-radius: 10px;
+        text-align: center;
+        height: fit-content;
+        animation: none;
+    }
+}

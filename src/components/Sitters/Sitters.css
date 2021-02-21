@@ -1,16 +1,16 @@
-.feed {
-    flex: 0.5;
-    margin: 0 20px;
+.sitter {
+    flex: 0.3;
+    margin: 0;
 }
 
-.feed__inputContainer {
-    background-color: white;
+.sitter__inputContainer {
+    background-color: #f5a623;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
 
-.feed__input {
+.sitter__input {
     border: 1px solid lightgrey;
     border-radius: 30px;
     display: flex;
@@ -18,12 +18,12 @@
     padding: 10px 10px 10px 15px;
 }
 
-.feed__input > form {
+.sitter__input > form {
     display: flex;
     width: 100%;
 }
 
-.feed__input > form > input {
+.sitter__input > form > input {
     border: none;
     flex: 1;
     margin-left: 10px;
@@ -31,25 +31,18 @@
     font-weight: 600;
 }
 
-.feed__input > form > button {
+.sitter__input > form > button {
     display: none;
 }
 
-.feed__inputOptions {
+.sitter__inputOptions {
     display: flex;
     justify-content: space-evenly;
-}
-
-.feed__bookingsTitle {
-    background-color: #55427a;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    background-color: #f5a623;
 }
 
 @media (max-width: 600px) {
-    .feed {
+    .sitter {
         margin: 20px 0 0 !important;
     }
 }
