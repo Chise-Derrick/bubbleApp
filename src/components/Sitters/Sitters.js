@@ -15,9 +15,15 @@ const Sitters = (props) => {
   const [input, setInput] = useState("");
 
   useEffect(() => {
-    axiosFunctions.getLocalSitter(user.data.token).then((sitter) => {
+    db.collection("users")
+      .doc(user.uid)
+      .get()
+      .then((doc) => {
+        setSitters(doc.data().localSitters);
+      });
+    /*    axiosFunctions.getLocalSitter(user.data.token).then((sitter) => {
       setSitters(sitter.data);
-    });
+    });*/
   }, []);
 
   const sendPost = (e) => {

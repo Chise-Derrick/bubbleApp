@@ -2,8 +2,6 @@ import * as React from "react";
 import "./Post.css";
 import { Avatar } from "@material-ui/core";
 import InputOption from "../InputOption";
-import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
-import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SendOutlinedIcon from "@material-ui/icons/SendOutlined";
 import axiosFunctions from "../../../functions/axiosFunctions";
@@ -31,12 +29,6 @@ const Post = ({
     console.log(scheduledDuration);
     return hours + ":" + minutes;
   };
-
-  useEffect(() => {
-    axiosFunctions.getLocalSitter(user.data.token).then((sitter) => {
-      setSitterProp(sitter.data.find((id) => id === pId));
-    });
-  }, []);
 
   return (
     <div className="post">

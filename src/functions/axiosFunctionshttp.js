@@ -3,16 +3,13 @@ import axios from "axios";
 const axiosFunctionss = {
   loginUser(email, password) {
     console.log(email, password);
-    return axios.post(
-      "http://www.api-staging.joinbubble.co.uk/auth/local?web=0",
-      {
-        email: email,
-        password: password,
-      }
-    );
+    return axios.post("http://api-staging.joinbubble.co.uk/auth/local?web=0", {
+      email: email,
+      password: password,
+    });
   },
   getUserDetails(access_token) {
-    return axios.get("http://www.api-staging.joinbubble.co.uk/api/user", {
+    return axios.get("http://api-staging.joinbubble.co.uk/api/user", {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
@@ -20,7 +17,7 @@ const axiosFunctionss = {
   },
   getLocalSitter(access_token) {
     console.log(access_token);
-    return axios.get("http://www.api-staging.joinbubble.co.uk/api/search", {
+    return axios.get("http://api-staging.joinbubble.co.uk/api/search", {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
@@ -28,7 +25,7 @@ const axiosFunctionss = {
   },
   getActiveBookings(access_token) {
     return axios.get(
-      "http://www.api-staging.joinbubble.co.uk/api/booking/activesummary",
+      "http://api-staging.joinbubble.co.uk/api/booking/activesummary",
       {
         headers: {
           Authorization: `Bearer ${access_token}`,

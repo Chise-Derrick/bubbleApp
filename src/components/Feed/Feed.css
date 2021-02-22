@@ -48,6 +48,21 @@
     margin-bottom: 20px;
 }
 
+.feed__card {
+    display: flex;
+    background-color: #fff;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: solid 1px #c5b8de;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(168, 151, 201, 0.3);
+}
+
+.feed__card > img {
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+}
 @media (max-width: 600px) {
     .feed {
         margin: 20px 0 0 !important;

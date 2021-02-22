@@ -48,35 +48,32 @@ const Login = (props) => {
   const loginToApp = (e) => {
     e.preventDefault();
     // janet.stevans@siliconrhino.io
+    /*
     axiosFunctions.loginUser(email, password).then((user) => {
-      let harderPassword = "bubble" + password;
-      axiosFunctions.getUserDetails(user.data.token).then((userObject) => {
-        userObject.data.token = user.data.token;
-        auth
-          .signInWithEmailAndPassword(email, harderPassword)
-          .then((userAuth) => {
-            db.collection("users")
-              .doc(userAuth.user.uid)
-              .set(userObject.data)
-              .then(() => {
-                console.log(user.data);
-                console.log(userAuth);
-                dispatch(
-                  login({
-                    email: userAuth.user.email,
-                    uid: userAuth.user.uid,
-                    displayName: userAuth.user.displayName,
-                    photoURL: userObject.profileImageUrl,
-                    data: userObject.data,
-                    token: user.data.token,
-                  })
-                );
-              });
-          })
-          .catch((error) => alert(error));
-        console.log(userObject.data);
-      });
-    });
+*/
+    let harderPassword = "bubble" + password;
+    auth
+      .signInWithEmailAndPassword(email, harderPassword)
+      .then((userAuth) => {
+        db.collection("users")
+          .doc(userAuth.user.uid)
+          .get()
+          .then((user) => {
+            console.log(user);
+            console.log(userAuth);
+            /*                      dispatch(
+                        login({
+                          email: userAuth.user.email,
+                          uid: userAuth.user.uid,
+                          displayName: userAuth.user.displayName,
+                          photoURL: userObject.profileImageUrl,
+                          data: userObject.data,
+                          token: user.data.token,
+                        })
+                      );*/
+          });
+      })
+      .catch((error) => alert(error));
   };
 
   return (
