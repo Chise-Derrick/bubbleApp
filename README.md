@@ -8,6 +8,7 @@ Open [https://bubbleapp-dev.web.app/](https://bubbleapp-dev.web.app/) to view it
 This app uses Firebase Auth and Firebase Firestore as a database.<br />
 The local sitters, current bookings and user information are all being pulled from this.
 There are axios functions to pull from the original API and update Firebase when neccessary.<br />
+The app is mobile ready and adjusts to any screen size.
 
 
 ### `Next Steps`
